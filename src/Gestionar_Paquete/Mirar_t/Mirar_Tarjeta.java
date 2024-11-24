@@ -5,6 +5,7 @@
  */
 package Gestionar_Paquete.Mirar_t;
 
+import Gestionar_Paquete.Main_Gestionar;
 import java.sql.Connection;
 import Main_paquete.Bdd;
 import java.sql.ResultSetMetaData;
@@ -20,21 +21,20 @@ public class Mirar_Tarjeta extends javax.swing.JFrame {
 
     static Connection  conexion = null;
     static int id;
+    Mirar_Tarjeta_codigo MtC= new Mirar_Tarjeta_codigo();
+    DefaultListModel modelo = new DefaultListModel();
     
-    DefaultListModel modelo;
     public Mirar_Tarjeta(Connection conexion,int id) {
         initComponents();
         
         Mirar_Tarjeta.conexion=conexion;
         Mirar_Tarjeta.id=id;
-        
-        Bdd bdd=new Bdd();
-        ArrayList<String> array = new ArrayList<String>();
-        array=bdd.Select_todo_tar(conexion,id);
-        modelo=obtener_modelo(modelo,array);
-        
+        modelo=MtC.mostrar(modelo,conexion,id);
         jtarjetas.setModel(modelo);
         jtarjetas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        
+        
        
             
         
@@ -51,6 +51,7 @@ public class Mirar_Tarjeta extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jtarjetas = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,32 +62,47 @@ public class Mirar_Tarjeta extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jtarjetas);
 
+        jButton1.setText("<------");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private DefaultListModel obtener_modelo(DefaultListModel modelo,ArrayList<String> arrayList){
-        for (int i=0; i<arrayList.size(); i++){
-            modelo.addElement(arrayList.get(i));
-        }
-        return modelo;
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Main_Gestionar Mg = new Main_Gestionar(conexion,id);
+        this.setVisible(false);
+        Mg.setVisible(true);
+        Mg.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -120,6 +136,7 @@ public class Mirar_Tarjeta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> jtarjetas;
     // End of variables declaration//GEN-END:variables

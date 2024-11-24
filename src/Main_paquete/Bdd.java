@@ -161,15 +161,15 @@ public class Bdd {
     
     public ArrayList Select_todo_tar(Connection conexion,int id){
         try{
-             ArrayList<String> array = new ArrayList<String>();
-            String str="SELECT * FROM Tarjeta WHERE id_usuario=?";
+            ArrayList<String> array = new ArrayList<String>();
+            String str="SELECT Numero,Cargo,fecha_de_vencimiento,num_seguridad FROM Tarjeta WHERE id_usuario=?";
             PreparedStatement statement = conexion.prepareStatement(str);
-            
             statement.setInt(1,id);
+            
             ResultSet result = statement.executeQuery();
             
             while(result.next()){
-                String Item=result.getInt("id") + "-" + result.getInt("Numero")+ "-" + result.getInt("Cargo")+ "-" + result.getInt("fecha_de_vencimiento")+ "-" + result.getInt("num_seguridad");
+                String Item="Numero de tarjeta=" + result.getInt("Numero")+ "-" + "Saldo total=" + result.getInt("Cargo")+ "-" + "Fecha de vencimiento=" + result.getInt("fecha_de_vencimiento")+ "-" + "Numero de seguridad=" + result.getInt("num_seguridad");
                 array.add(Item);
             }
             return array;
@@ -177,6 +177,22 @@ public class Bdd {
         }catch(Exception e){
             return null;
             
+        }
+    }
+    
+    public boolean Eliminar(Connection conexion,int id,int num){
+        try{
+            String str="DELETE FROM Tarjeta WHERE Numero=? AND id_usuario=?;";
+            PreparedStatement insert= conexion.prepareStatement(str);
+            insert.setInt(1,num);
+            insert.setInt(2,id);
+            
+            
+            insert.executeUpdate();
+            return true;
+            
+        }catch(Exception e){
+            return false;
         }
     }
     

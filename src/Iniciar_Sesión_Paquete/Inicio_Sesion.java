@@ -76,6 +76,11 @@ public class Inicio_Sesion extends javax.swing.JFrame {
                 JContraseña1FocusLost(evt);
             }
         });
+        JContraseña1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JContraseña1ActionPerformed(evt);
+            }
+        });
 
         Envio_data.setText("Iniciar Sesion");
         Envio_data.addActionListener(new java.awt.event.ActionListener() {
@@ -190,6 +195,10 @@ public class Inicio_Sesion extends javax.swing.JFrame {
     private void JNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JNombreActionPerformed
+
+    private void JContraseña1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JContraseña1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JContraseña1ActionPerformed
 
     /**
      * @param args the command line arguments

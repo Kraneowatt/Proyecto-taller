@@ -9,6 +9,7 @@ import java.sql.Connection;
 import Usuario_Paquete.Main_usuario;
 import Gestionar_Paquete.Ingresar_t.Ingresar_tarjeta;
 import Gestionar_Paquete.Mirar_t.Mirar_Tarjeta;
+import Gestionar_Paquete.Eliminar_t.Eliminar_Tarjeta;
 /**
  *
  * @author HP OMEN
@@ -58,6 +59,11 @@ public class Main_Gestionar extends javax.swing.JFrame {
         });
 
         jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,6 +111,13 @@ public class Main_Gestionar extends javax.swing.JFrame {
         Mt.setVisible(true);
         Mt.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Eliminar_Tarjeta Et=new Eliminar_Tarjeta(conexion,id);
+        this.setVisible(false);
+        Et.setVisible(true);
+        Et.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
