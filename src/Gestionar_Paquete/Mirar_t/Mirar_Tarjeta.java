@@ -5,17 +5,39 @@
  */
 package Gestionar_Paquete.Mirar_t;
 
+import java.sql.Connection;
+import Main_paquete.Bdd;
+import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.ListSelectionModel;
 /**
  *
  * @author HP OMEN
  */
 public class Mirar_Tarjeta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Mirar_Tarjeta
-     */
-    public Mirar_Tarjeta() {
+    static Connection  conexion = null;
+    static int id;
+    
+    DefaultListModel modelo;
+    public Mirar_Tarjeta(Connection conexion,int id) {
         initComponents();
+        
+        Mirar_Tarjeta.conexion=conexion;
+        Mirar_Tarjeta.id=id;
+        
+        Bdd bdd=new Bdd();
+        ArrayList<String> array = new ArrayList<String>();
+        array=bdd.Select_todo_tar(conexion,id);
+        modelo=obtener_modelo(modelo,array);
+        
+        jtarjetas.setModel(modelo);
+        jtarjetas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+       
+            
+        
     }
 
     /**
@@ -27,25 +49,44 @@ public class Mirar_Tarjeta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtarjetas = new javax.swing.JList<>();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jtarjetas.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jtarjetas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private DefaultListModel obtener_modelo(DefaultListModel modelo,ArrayList<String> arrayList){
+        for (int i=0; i<arrayList.size(); i++){
+            modelo.addElement(arrayList.get(i));
+        }
+        return modelo;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -73,11 +114,13 @@ public class Mirar_Tarjeta extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Mirar_Tarjeta().setVisible(true);
+                new Mirar_Tarjeta(conexion,id).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> jtarjetas;
     // End of variables declaration//GEN-END:variables
 }

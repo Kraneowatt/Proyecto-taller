@@ -18,6 +18,8 @@ import java.util.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.sql.*;
+import java.util.ArrayList;
+import javax.swing.JTable;
 /**
  *
  * @author HP OMEN
@@ -157,5 +159,25 @@ public class Bdd {
     }
     }
     
+    public ArrayList Select_todo_tar(Connection conexion,int id){
+        try{
+             ArrayList<String> array = new ArrayList<String>();
+            String str="SELECT * FROM Tarjeta WHERE id_usuario=?";
+            PreparedStatement statement = conexion.prepareStatement(str);
+            
+            statement.setInt(1,id);
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next()){
+                String Item=result.getInt("id") + "-" + result.getInt("Numero")+ "-" + result.getInt("Cargo")+ "-" + result.getInt("fecha_de_vencimiento")+ "-" + result.getInt("num_seguridad");
+                array.add(Item);
+            }
+            return array;
+            
+        }catch(Exception e){
+            return null;
+            
+        }
+    }
     
 }
