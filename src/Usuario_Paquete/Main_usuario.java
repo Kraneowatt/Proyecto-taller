@@ -7,6 +7,7 @@ package Usuario_Paquete;
 import Main_paquete.Bdd;
 import java.sql.Connection;
 import Gestionar_Paquete.Main_Gestionar;
+import Cargar_S_Saldo.Pantalla_Tarjetas;
 /**
  *
  * @author HP OMEN
@@ -15,6 +16,8 @@ public class Main_usuario extends javax.swing.JFrame {
 
     static Connection  conexion = null;
     static int id;
+    Main_Gestionar Mg;
+    Pantalla_Tarjetas Pt;
     public Main_usuario(Connection conexion,int id) {
         initComponents();
         Main_usuario.conexion=conexion;
@@ -93,14 +96,17 @@ public class Main_usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JGestionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JGestionarActionPerformed
-            Main_Gestionar Mg = new Main_Gestionar(conexion,id);
+            Mg = new Main_Gestionar(conexion,id);
             this.setVisible(false);
             Mg.setVisible(true);
             Mg.setLocationRelativeTo(null);
     }//GEN-LAST:event_JGestionarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        Pt= new Pantalla_Tarjetas(conexion,id);
+        this.setVisible(false);
+        Pt.setVisible(true);
+        Pt.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

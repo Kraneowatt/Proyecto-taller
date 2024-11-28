@@ -23,7 +23,7 @@ public class Eliminar_Tarjeta extends javax.swing.JFrame {
         initComponents();
         Eliminar_Tarjeta.conexion=conexion;
         Eliminar_Tarjeta.id=id;
-        
+        Main_Gestionar Mg = new Main_Gestionar(conexion,id);
         
                 
     }

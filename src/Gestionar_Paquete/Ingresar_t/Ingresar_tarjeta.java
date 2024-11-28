@@ -18,6 +18,7 @@ public class Ingresar_tarjeta extends javax.swing.JFrame {
     static Connection  conexion = null;
     static int id;
     Bdd bdd = new Bdd();
+    Main_Gestionar Mu=new Main_Gestionar(conexion,id);
     public Ingresar_tarjeta(Connection conexion,int id) {
         initComponents();
         Ingresar_tarjeta.conexion=conexion;
@@ -196,7 +197,7 @@ public class Ingresar_tarjeta extends javax.swing.JFrame {
         
         if(bdd.insert_tarjeta(Num,Fecha,Num_seguridad,id,conexion)){
             JOptionPane.showMessageDialog(this,"Tarjeta creada");
-            Main_Gestionar Mu=new Main_Gestionar(conexion,id);
+            
             this.setVisible(false);
             Mu.setVisible(true);
             Mu.setLocationRelativeTo(null);

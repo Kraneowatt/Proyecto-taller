@@ -12,9 +12,8 @@ import Iniciar_Sesión_Paquete.Inicio_Sesion;
  */
 public class Main extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
+    Crear_Cuenta Cc = new Crear_Cuenta();
+    Inicio_Sesion Is= new Inicio_Sesion();
     public Main() {
         initComponents();
     }
@@ -72,14 +71,14 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            Crear_Cuenta Cc = new Crear_Cuenta();
+            
             this.setVisible(false);
             Cc.setVisible(true);
             Cc.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-            Inicio_Sesion Is= new Inicio_Sesion();
+            
             this.setVisible(false);
             Is.setVisible(true);
             Is.setLocationRelativeTo(null);

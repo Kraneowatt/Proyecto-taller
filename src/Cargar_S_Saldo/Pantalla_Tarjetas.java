@@ -3,41 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Gestionar_Paquete.Mirar_t;
-
+package Cargar_S_Saldo;
 import Gestionar_Paquete.Main_Gestionar;
+import Usuario_Paquete.Main_usuario;
 import java.sql.Connection;
-import Main_paquete.Bdd;
-import java.sql.ResultSetMetaData;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 /**
  *
  * @author HP OMEN
  */
-public class Mirar_Tarjeta extends javax.swing.JFrame {
-
-    static Connection  conexion = null;
-    static int id;
-    Mirar_Tarjeta_codigo MtC= new Mirar_Tarjeta_codigo();
+public class Pantalla_Tarjetas extends javax.swing.JFrame {
+    Pantalla_Tarjeta_Codigo MtC= new Pantalla_Tarjeta_Codigo();
     DefaultListModel modelo = new DefaultListModel();
     
-    public Mirar_Tarjeta(Connection conexion,int id) {
+    static Connection  conexion = null;
+    static int id;
+    public Pantalla_Tarjetas(Connection conexion,int id) {
         initComponents();
-        
-        Mirar_Tarjeta.conexion=conexion;
-        Mirar_Tarjeta.id=id;
+        Pantalla_Tarjetas.conexion=conexion;
+        Pantalla_Tarjetas.id=id;
         modelo=MtC.mostrar(modelo,conexion,id);
         jtarjetas.setModel(modelo);
         jtarjetas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        Main_Gestionar Mg = new Main_Gestionar(conexion,id);
-        
-        
-       
-            
-        
+        jtarjetas.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {
+                    String itemSeleccionado = jtarjetas.getSelectedValue();
+                    String[] separado=itemSeleccionado.split("-");
+                    String[] separado2=separado[0].split("=");
+                    int id=Integer.parseInt(separado2[1]);
+                    System.out.println(id);
+                    
+                    
+                    
+                    
+                }
+            }
+        });
     }
 
     /**
@@ -49,18 +54,11 @@ public class Mirar_Tarjeta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtarjetas = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jtarjetas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jtarjetas);
 
         jButton1.setText("<------");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +66,13 @@ public class Mirar_Tarjeta extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jtarjetas.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jtarjetas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,28 +86,30 @@ public class Mirar_Tarjeta extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton1)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Main_Gestionar Mg = new Main_Gestionar(conexion,id);
+        Main_usuario Mg = new Main_usuario(conexion,id);
         this.setVisible(false);
         Mg.setVisible(true);
         Mg.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -117,20 +124,20 @@ public class Mirar_Tarjeta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Mirar_Tarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_Tarjetas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Mirar_Tarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_Tarjetas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Mirar_Tarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_Tarjetas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Mirar_Tarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_Tarjetas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Mirar_Tarjeta(conexion,id).setVisible(true);
+                new Pantalla_Tarjetas(conexion,id).setVisible(true);
             }
         });
     }

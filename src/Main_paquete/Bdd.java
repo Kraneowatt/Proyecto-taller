@@ -196,4 +196,18 @@ public class Bdd {
         }
     }
     
+    public boolean Insert_cant(Connection conexion,int id,int cant){
+        try{
+            String str="UPDATE Tarjeta set Cargo = Cargo + ? WHERE Numero=?;";
+            PreparedStatement insert= conexion.prepareStatement(str);
+            insert.setInt(1,cant);
+            insert.setInt(2,id);
+            
+            
+            insert.executeUpdate();
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
 }

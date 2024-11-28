@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Gestionar_Paquete.Mirar_t;
+package Cargar_S_Saldo;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import Main_paquete.Bdd;
 import java.sql.Connection;
-
 /**
  *
  * @author HP OMEN
  */
-public class Mirar_Tarjeta_codigo {
+public class Pantalla_Tarjeta_Codigo {
     Bdd bdd = new Bdd();
     public DefaultListModel mostrar(DefaultListModel modelo,Connection conexion,int id){
         
@@ -27,3 +26,4 @@ public class Mirar_Tarjeta_codigo {
         
     }
 }
+

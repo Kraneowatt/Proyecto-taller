@@ -19,11 +19,15 @@ public class Main_Gestionar extends javax.swing.JFrame {
     
     static Connection  conexion = null;
     static int id;
+    Ingresar_tarjeta It;
+    Mirar_Tarjeta Mt;
+    Eliminar_Tarjeta Et;
     
     public Main_Gestionar(Connection conexion,int id) {
         initComponents();
         Main_Gestionar.conexion=conexion;
         Main_Gestionar.id=id;
+        
     }
 
     /**
@@ -99,21 +103,21 @@ public class Main_Gestionar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Ingresar_tarjeta It=new Ingresar_tarjeta(conexion,id);
+         It=new Ingresar_tarjeta(conexion,id);
         this.setVisible(false);
         It.setVisible(true);
         It.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Mirar_Tarjeta Mt=new Mirar_Tarjeta(conexion,id);
+         Mt=new Mirar_Tarjeta(conexion,id);
         this.setVisible(false);
         Mt.setVisible(true);
         Mt.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Eliminar_Tarjeta Et=new Eliminar_Tarjeta(conexion,id);
+         Et=new Eliminar_Tarjeta(conexion,id);
         this.setVisible(false);
         Et.setVisible(true);
         Et.setLocationRelativeTo(null);
