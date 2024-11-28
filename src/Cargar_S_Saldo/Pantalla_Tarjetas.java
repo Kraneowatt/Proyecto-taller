@@ -18,9 +18,9 @@ import javax.swing.event.ListSelectionListener;
 public class Pantalla_Tarjetas extends javax.swing.JFrame {
     Pantalla_Tarjeta_Codigo MtC= new Pantalla_Tarjeta_Codigo();
     DefaultListModel modelo = new DefaultListModel();
-    
     static Connection  conexion = null;
     static int id;
+    Tarjeta_x tar;
     public Pantalla_Tarjetas(Connection conexion,int id) {
         initComponents();
         Pantalla_Tarjetas.conexion=conexion;
@@ -34,8 +34,12 @@ public class Pantalla_Tarjetas extends javax.swing.JFrame {
                     String itemSeleccionado = jtarjetas.getSelectedValue();
                     String[] separado=itemSeleccionado.split("-");
                     String[] separado2=separado[0].split("=");
-                    int id=Integer.parseInt(separado2[1]);
-                    System.out.println(id);
+                    int ID=Integer.parseInt(separado2[1]);
+                    System.out.println(ID);
+                    tar=new Tarjeta_x(conexion,ID);
+                    Pantalla_Tarjetas.this.setVisible(false);
+                    tar.setVisible(true);
+                    tar.setLocationRelativeTo(null);
                     
                     
                     

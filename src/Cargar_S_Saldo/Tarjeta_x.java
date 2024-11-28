@@ -97,12 +97,13 @@ public class Tarjeta_x extends javax.swing.JFrame {
             this.setVisible(false);
             ma.setVisible(true);
             ma.setLocationRelativeTo(null);
-        }
+        }else{
             JOptionPane.showMessageDialog(this,"Falló la subida del cargo","ERROR", JOptionPane.WARNING_MESSAGE);
             Main_usuario ma=new Main_usuario(conexion,id);
             this.setVisible(false);
             ma.setVisible(true);
             ma.setLocationRelativeTo(null);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
