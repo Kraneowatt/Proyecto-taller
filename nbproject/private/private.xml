@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/Gestionar_Paquete/Ingresar_t/Ingresar_tarjeta.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>8</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Cargar_S_Saldo/Pantalla_Tarjetas.java</file>
             <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Gestionar_Paquete/Mirar_t/Mirar_Tarjeta_codigo.java</file>
-            <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Crear_Cuenta_paquete/Crear_Cuenta_Codigo.java</file>
             <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Gestionar_Paquete/Ingresar_t/Ingresar_tarjeta.java</file>
-            <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Gestionar_Paquete/Eliminar_t/Eliminar_Tarjeta.java</file>
             <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Gestionar_Paquete/Main_Gestionar.java</file>
-            <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Gestionar_Paquete/Mirar_t/Mirar_Tarjeta.java</file>
+            <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Cargar_S_Saldo/Tarjeta_x.java</file>
+            <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Cargar_S_Saldo/Pantalla_Tarjeta_Codigo.java</file>
             <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Usuario_Paquete/Main_usuario.java</file>
-            <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Iniciar_Sesión_Paquete/Inicio_Sesion_Codigo.java</file>
-            <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Main_paquete/Main.java</file>
+            <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Gestionar_Paquete/Mirar_t/Mirar_Tarjeta.java</file>
             <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Iniciar_Sesión_Paquete/Inicio_Sesion.java</file>
             <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Main_paquete/Bdd.java</file>
             <file>file:/C:/Users/HP%20OMEN/Desktop/Lenguajes/Java/Proyecto-taller/src/Crear_Cuenta_paquete/Crear_Cuenta.java</file>
